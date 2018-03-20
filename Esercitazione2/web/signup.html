@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Sign up</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Sara Casti">
+        <meta name="keywords" content="html, css, java, webapplication">
+        <meta name="description" content="Images, tables and forms">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style1.css" media="screen">
+        
+    </head>
+    <body>
+        <header>
+            <h1 id="maintitle">News dal mondo!</h1>
+            <img title="logo" alt="logo del sito" src="images/logo.jpeg">
+        </header>
+        <hr>
+        <nav>
+            <h3>Le pagine del sito</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="utente.html">Il tuo Profilo</a></li>
+                <li><a href="signup.html">Registrati</a></li>
+                <li><a href="nuova_pagina.html">Nuovo link</a></li>
+            </ul>
+        </nav> 
+        <div>
+            <form action='utente.html' method="post">
+                <label for="nome"> Nome:</label>
+                <input name ="nome" id="nome" type="text"> <br/>
+                <label for="surname"> Cognome:</label>
+                <input name ="surname" id="surname" type="text"> <br/>
+                <label for="psw">Password:</label>
+                <input name="psw" id="psw" type="password"> <br/>
+                <label>Sex:</label> 
+                <br>
+                <input type="radio" name="gender" value="male"> M <br>
+                <input type="radio" name="gender" value="female"> F <br>
+                <select>
+                    <option> Sport</option>
+                    <option> Musica </option>
+                    <option> Attualità </option>
+                    <option> Celebrità </option>
+                </select>
+                <br>
+                <label for="description">Descriviti: </label>
+                <textarea id="description" rows="4" cols="50">
+                    Inserisci una tua descrizione qui!...
+                </textarea>     
+                <br>
+                <input type="submit"/>
+            </form>
+        </div>
+    </body>
+</html>
