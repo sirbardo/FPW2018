@@ -1,0 +1,77 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20-mar-2018, 11.16.23
+    Author     : Sary
+*/
+
+body
+{
+    font-family: "Palatino Linotype","Book Antiqua", Palatino, serif;
+    color: white;
+    background: #333333;
+}
+
+h1, h2, h3
+{
+    color: #33ff33;
+}
+
+#maintitle 
+{
+    color: white;
+}
+
+input
+{
+    background: orange;
+}
+
+
+input:focus
+{
+    background: gray;
+    color: red;
+}
+
+a:link
+{
+    font-style: italic;
+    color: white;
+}
+
+a:visited
+{
+    color: dodgerblue;
+}
+
+.headerrow
+{
+    background: #33ff33;
+    font-weight: bold;
+    color: black;
+}
+
+.evenrow
+{
+    background: orange;
+    color: black;
+}
+
+li > ol 
+{
+    list-style-type: upper-roman;
+}
+
+article > h3
+{
+    color: aquamarine;
+}
+
+a[href="http://www.google.com"]
+{
+    color: blue;
+}
