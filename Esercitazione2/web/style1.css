@@ -23,6 +23,7 @@ h1, h2, h3
 #maintitle 
 {
     color: white;
+    display: inline; /*Aggiunto per posizionare il testo di lato all'immagine*/
 }
 
 input
@@ -74,4 +75,79 @@ article > h3
 a[href="http://www.google.com"]
 {
     color: blue;
+}
+
+/* Posizionamento elementi nella pagina */
+#logo
+{
+    width: 10%;
+    height: auto;
+    display: inline;
+}
+
+#search
+{
+    display: inline;
+    width: 20%;
+}
+
+nav
+{
+    width: 100%;
+}
+nav ul
+{
+    list-style-type: none;
+    width: 80%;
+    border: solid;
+    border-color: brown;
+    display: inline;
+    padding: 0px;
+}
+
+nav li
+{
+    display: inline-block;
+    border: solid;
+    border-color: white;
+    width: 20%;
+    padding: 0px;
+}
+
+nav h3
+{
+    display: none;
+}
+
+.left-box
+{
+   display: inline;  
+   float: left;
+   width: 20%;
+   border:solid;
+}
+
+.main-box
+{
+    display: inline;
+    float: left;
+}
+
+footer{
+    display: block;
+    width: 100%;
+    text-align: center;
+    clear: both; /* far andar a capo il footer */
+    background-color: blue;
+}
+
+label::after, label::before
+{
+    content: '\A';
+    white-space: pre;
+}
+
+form{
+    border: solid;
+    color: white;
 }
