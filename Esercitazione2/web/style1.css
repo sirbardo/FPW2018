@@ -8,6 +8,11 @@ and open the template in the editor.
     Author     : Sary
 */
 
+*
+{
+    box-sizing: border-box;
+}
+ 
 body
 {
     font-family: "Palatino Linotype","Book Antiqua", Palatino, serif;
@@ -23,7 +28,7 @@ h1, h2, h3
 #maintitle 
 {
     color: white;
-    display: inline; /*Aggiunto per posizionare il testo di lato all'immagine*/
+    display: inline;
 }
 
 input
@@ -77,77 +82,110 @@ a[href="http://www.google.com"]
     color: blue;
 }
 
-/* Posizionamento elementi nella pagina */
 #logo
 {
-    width: 10%;
-    height: auto;
-    display: inline;
+   display: inline; 
+   width: 100px;
+   height: auto;
 }
 
-#search
-{
-    display: inline;
-    width: 20%;
-}
-
-nav
-{
-    width: 100%;
-}
-nav ul
+.navbar
 {
     list-style-type: none;
-    width: 80%;
-    border: solid;
-    border-color: brown;
-    display: inline;
+    margin: 0px;
     padding: 0px;
+    width: 100%;
+    position:relative;
 }
 
 nav li
 {
     display: inline-block;
-    border: solid;
+    border-style:ridge;
+    border-radius: 10px;
     border-color: white;
-    width: 20%;
-    padding: 0px;
+    width: 30%;
+    margin: 0px;
+    padding-left: 10px;
+    padding-right:10px;
+}
+
+nav li:last-child
+{
+    border-radius: 10px;
+    border-color: white;
 }
 
 nav h3
 {
-    display: none;
+    display:none;
+}
+
+#div-search
+{
+   display: inline; 
+   float: left;
+   border-style: solid;
+   border-color: white;
+   width: 20%;
+}
+
+#search
+{
+    width: 100%;
+}
+
+#div-nav
+{
+    display: inline;
+    float: left;
+    width: 80%;
+    padding: 0px;
 }
 
 .left-box
 {
-   display: inline;  
-   float: left;
-   width: 20%;
-   border:solid;
+    display: inline;
+    float: left;
+    width: 20%;
+    height: 600px;
+    border-style: solid;
+    border-color: white;
+    margin: 0px;
+    clear: left;
 }
 
 .main-box
 {
     display: inline;
     float: left;
+    border-style: solid;
+    border-color: white;
+    width:80%;
+    height: 600px;
 }
 
-footer{
-    display: block;
-    width: 100%;
-    text-align: center;
-    clear: both; /* far andar a capo il footer */
-    background-color: blue;
-}
-
-label::after, label::before
+footer
 {
-    content: '\A';
-    white-space: pre;
+   clear: both;
+   background-color:darkblue;
+   text-align: center;
 }
 
-form{
-    border: solid;
-    color: white;
+
+@media screen and (min-width: 300px)
+{
+    #maintitle
+    {
+        color: blue;
+    }
 }
+
+@media screen and (min-width: 400px)
+{
+    #maintitle
+    {
+        color: red;
+    }
+}
+

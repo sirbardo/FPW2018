@@ -17,25 +17,37 @@ and open the template in the editor.
     </head>
     <body>
         <header>
+            <img  id="logo" title="logo" alt="logo del sito" src="images/logo.jpeg">
             <h1 id="maintitle">News dal mondo!</h1>
-            <img title="logo" alt="logo del sito" src="images/logo.jpeg">
         </header>
         <hr>
         <nav>
             <h3>Le pagine del sito</h3>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="utente.html">Il tuo Profilo</a></li>
-                <li><a href="signup.html">Registrati</a></li>
-                <li><a href="nuova_pagina.html">Nuovo link</a></li>
-            </ul>
+            <div id="div-search">
+                <input type="text" id="search" name="search" value="Cerca..">
+            </div>
+      
+            <div id="div-nav">
+                <ul class="navbar">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="utente.html">Il tuo Profilo</a></li>
+                    <li><a href="signup.html">Registrati</a></li>
+                </ul>
+            </div>
         </nav> 
         <article>
-            <div>
-                <h3>
-                    Lista delle principali categorie
-                </h3>
-            </div>
+            <div class="left-box">
+            
+            <h3>Lista ultime news</h3> 
+            <ol>
+                <li>Scandalo Facebook</li>
+                <li>Pirati della strada investono bambino</li>
+                <li>Nuovo samsung galaxy s9</li>
+            </ol>
+            <hr>
+            <h3>
+                Lista delle principali categorie
+            </h3>
             <ol>
                 <li>
                     Sport
@@ -48,7 +60,10 @@ and open the template in the editor.
                 <li>Musica</li>
                 <li>Politica</li>
             </ol>
-            
+        </div>
+        <div class="main-box">
+                Notizie aggiornate!!
+        </div>
             <a href="http://www.google.com">Gooooogle</a>
         </article>
         <footer>Sito realizzato da Sara Casti! PhD Student at University of Cagliari</footer>

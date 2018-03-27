@@ -14,21 +14,48 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="style1.css" media="screen">
     </head>
     <body>
-        <header>
+        <header>       
+            <img id="logo" title="logo" alt="logo del sito" src="images/logo.jpeg">
             <h1 id="maintitle">News dal mondo!</h1>
-            <img title="logo" alt="logo del sito" src="images/logo.jpeg">
         </header>
         <hr>
         <nav>
+            <input id="search" type="text">
             <h3>Le pagine del sito</h3>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="utente.html">Il tuo Profilo</a></li>
                 <li><a href="signup.html">Registrati</a></li>
-                <li><a href="nuova_pagina.html">Nuovo link</a></li>
             </ul>
         </nav> 
         <article>
+        <div class="left-box">
+            
+            <h3>Lista ultime news</h3> 
+            <ol>
+                <li>Scandalo Facebook</li>
+                <li>Pirati della strada investono bambino</li>
+                <li>Nuovo samsung galaxy s9</li>
+            </ol>
+            <hr>
+            <h3>
+                Lista delle principali categorie
+            </h3>
+            <ol>
+                <li>
+                    Sport
+                    <ol>
+                        <li>Basket</li>
+                        <li>Tennis</li>
+                        <li>Calcio</li>
+                    </ol>
+                </li>
+                <li>Musica</li>
+                <li>Politica</li>
+            </ol>
+        </div>
+        <div class="main-box">
+               
             <h3>Il tuo profilo:</h3>
             <section>
                 <h4>Le tue informazioni personali</h4>
@@ -88,6 +115,8 @@ and open the template in the editor.
                 </table>
                 <hr>
             </section>
+            </div>
         </article>
+        <footer>Sito realizzato da Sara Casti</footer>
     </body>
 </html>
