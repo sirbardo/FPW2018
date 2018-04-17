@@ -32,9 +32,31 @@ public class Utente extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            
+            HttpSession session = request.getSession(false);
+
+            if (session == null) 
+            {
+                //Se non c'è la sessione
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+            }
+            else if (session.getAttribute("loggedIn") != null &&
+                     !session.getAttribute("loggedIn").equals(true))
+            {
+                //loggedIn non vale true
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+            }
+            else if (session.getAttribute("loggedIn") == null)
+            {
+                //non c'è loggedIn
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+            }
+            
+            
             UserFactory userFactory = UserFactory.getInstance();
 
-            User user = userFactory.getUserById(2);
+            int idUtente = (int)session.getAttribute("userId");
+            User user = userFactory.getUserById(idUtente);
 
             String name = user.getName();
             String surname = user.getSurname();

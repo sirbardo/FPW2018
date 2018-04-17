@@ -36,6 +36,13 @@ public class Login extends HttpServlet {
             
             HttpSession session = request.getSession();
 
+            if (request.getParameter("logout") != null)
+            {
+                session.invalidate();
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+                return;
+            }
+            
             //Utente Loggato
             if (session.getAttribute("loggedIn") != null &&
                 session.getAttribute("loggedIn").equals(true))
@@ -60,6 +67,13 @@ public class Login extends HttpServlet {
                     session.setAttribute("loggedIn", true);
                     
                     request.getRequestDispatcher("Utente").forward(request, response);
+                    return;
+                }
+                else if(email != null &&
+                        password != null)
+                {
+                    request.setAttribute("invalidData", true);
+                    request.getRequestDispatcher("login.jsp").forward(request, response);
                     return;
                 }
             }

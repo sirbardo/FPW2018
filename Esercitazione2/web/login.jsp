@@ -58,6 +58,11 @@ and open the template in the editor.
         <div class="main-box">
                
             <h3>Login:</h3>
+            
+            <c:if test="${invalidData == true}">
+                <p> Dati errati </p>
+            </c:if>
+            
             <form action="Login" method="post">
                 <div>
                     <label for="userName">Email</label>

@@ -65,6 +65,7 @@ and open the template in the editor.
                     <li>${email}</li>
                     <li>PhD student Computer Science</li>
                 </ul>
+                <a href="Login?logout=1">Logout</a>
             </section>
             <hr>
             <section>
