@@ -1,3 +1,11 @@
+<%-- 
+    Document   : utente
+    Created on : 10-apr-2018, 9.31.19
+    Author     : bardoz
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -14,20 +22,13 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="style1.css" media="screen">
     </head>
     <body>
-        <header>       
-            <img id="logo" title="logo" alt="logo del sito" src="images/logo.jpeg">
-            <h1 id="maintitle">News dal mondo!</h1>
-        </header>
+        
+        <jsp:include page="header.jsp" />
+        
         <hr>
-        <nav>
-            <input id="search" type="text">
-            <h3>Le pagine del sito</h3>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="utente.html">Il tuo Profilo</a></li>
-                <li><a href="signup.html">Registrati</a></li>
-            </ul>
-        </nav> 
+        
+        <jsp:include page="navbar.jsp" />
+        
         <article>
         <div class="left-box">
             
@@ -60,8 +61,8 @@ and open the template in the editor.
             <section>
                 <h4>Le tue informazioni personali</h4>
                 <ul>
-                    <li>Sara Casti</li>
-                    <li>sara.casti91@gmail.com</li>
+                    <li>${name} ${surname}</li>
+                    <li>${email}</li>
                     <li>PhD student Computer Science</li>
                 </ul>
             </section>

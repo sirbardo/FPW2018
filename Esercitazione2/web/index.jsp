@@ -1,3 +1,12 @@
+<%-- 
+    Document   : index
+    Created on : 10-apr-2018, 9.26.15
+    Author     : bardoz
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -16,25 +25,15 @@ and open the template in the editor.
         
     </head>
     <body>
-        <header>
-            <img  id="logo" title="logo" alt="logo del sito" src="images/logo.jpeg">
-            <h1 id="maintitle">News dal mondo!</h1>
-        </header>
+        
+        <!-- Header Here! -->
+        <jsp:include page="header.jsp" />
+        
         <hr>
-        <nav>
-            <h3>Le pagine del sito</h3>
-            <div id="div-search">
-                <input type="text" id="search" name="search" value="Cerca..">
-            </div>
-      
-            <div id="div-nav">
-                <ul class="navbar">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="utente.html">Il tuo Profilo</a></li>
-                    <li><a href="signup.html">Registrati</a></li>
-                </ul>
-            </div>
-        </nav> 
+        
+        <!-- NavBar Here! -->
+        <jsp:include page="navbar.jsp" />
+        
         <article>
             <div class="left-box">
             
@@ -62,7 +61,13 @@ and open the template in the editor.
             </ol>
         </div>
         <div class="main-box">
-                Notizie aggiornate!!
+            <c:forEach var="news" items="${listNews}">
+                <div>
+                    Notizia di: ${news.getAutore().getName()}
+                    <br>
+                    ${news.getContent()}
+                </div>
+            </c:forEach>
         </div>
             <a href="http://www.google.com">Gooooogle</a>
         </article>

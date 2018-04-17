@@ -71,4 +71,25 @@ public class UserFactory {
         return null;
     }
     
+    
+    
+    /*
+    public boolean login(String email, String password)
+    {
+        for(User user : userList)
+            if (user.getEmail().equals(email) && user.getPassword().equals(password))
+                return true;
+        
+        return false;
+    }
+    
+    public User getUserByEmail(String email)
+    {
+        for (User user: userList)
+            if (user.getEmail().equals(email))
+                return user;
+        
+        return null;
+    }
+    */
 }
