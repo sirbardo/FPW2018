@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -33,10 +34,38 @@ public class Login extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             
+            HttpSession session = request.getSession();
+
+            //Utente Loggato
+            if (session.getAttribute("loggedIn") != null &&
+                session.getAttribute("loggedIn").equals(true))
+            {
+                request.getRequestDispatcher("Utente").forward(request, response);
+                return;
+            }
+            else //Utente non loggato
+            {
+                String email = request.getParameter("email");
+                String password = request.getParameter("password");
+                UserFactory factory = UserFactory.getInstance();
+                
+                if (email != null &&
+                    password != null &&
+                    factory.login(email, password)
+                    )
+                {
+                    //email e password esistono e sono validi:
+                    int userId = factory.getUserByEmail(email).getId();
+                    session.setAttribute("userId", userId);
+                    session.setAttribute("loggedIn", true);
+                    
+                    request.getRequestDispatcher("Utente").forward(request, response);
+                    return;
+                }
+            }
             
 
-
-
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 

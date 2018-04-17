@@ -14,8 +14,8 @@
 
     <div id="div-nav">
         <ul class="navbar">
-            <li><a href="index.jsp">Home</a></li>
-            <li><a href="Utente">Il tuo Profilo</a></li>
+            <li><a href="Index">Home</a></li>
+            <li><a href="Login">Il tuo Profilo</a></li>
             <li><a href="signup.html">Registrati</a></li>
         </ul>
     </div>

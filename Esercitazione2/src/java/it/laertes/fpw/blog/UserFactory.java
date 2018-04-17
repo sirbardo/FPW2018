@@ -71,9 +71,6 @@ public class UserFactory {
         return null;
     }
     
-    
-    
-    /*
     public boolean login(String email, String password)
     {
         for(User user : userList)
@@ -91,5 +88,5 @@ public class UserFactory {
         
         return null;
     }
-    */
+
 }
