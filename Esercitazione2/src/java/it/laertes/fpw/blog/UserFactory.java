@@ -5,7 +5,13 @@
  */
 package it.laertes.fpw.blog;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -59,7 +65,34 @@ public class UserFactory {
     
     public ArrayList<User> getUsers()
     {
-        return userList;
+        ArrayList<User> usersFromDB = new ArrayList<>();
+        
+        try {
+            Connection conn = DbManager.getInstance().getDbConnection();
+            Statement stmt = conn.createStatement();
+            String sql = "select * from users";
+            ResultSet set = stmt.executeQuery(sql);
+            
+            while (set.next()) {
+                User userToAdd = new User();
+                userToAdd.setId(set.getInt("id_user"));
+                userToAdd.setName(set.getString("name"));
+                userToAdd.setSurname(set.getString("surname"));
+                userToAdd.setEmail(set.getString("email"));
+                userToAdd.setPassword(set.getString("password"));
+                userToAdd.setUrlProfImg(set.getString("urlProfImg"));
+                
+                usersFromDB.add(userToAdd);
+            }
+            
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserFactory.class.getName()).
+                    log(Level.SEVERE, null, ex);
+        }
+        
+        return usersFromDB;
     }
     
     public User getUserById(int id)

@@ -56,6 +56,12 @@ public class Login extends HttpServlet {
                 String password = request.getParameter("password");
                 UserFactory factory = UserFactory.getInstance();
                 
+                for (User user : factory.getUsers())
+                {
+                    System.out.println(user.getId());
+                    System.out.println(user.getName());
+                }
+                
                 if (email != null &&
                     password != null &&
                     factory.login(email, password)
