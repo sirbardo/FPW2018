@@ -12,6 +12,10 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>it.laertes.fpw.blog.Login</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Signup</servlet-name>
+        <servlet-class>it.laertes.fpw.blog.Signup</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Utente</servlet-name>
         <url-pattern>/Utente</url-pattern>
@@ -26,6 +30,10 @@
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Signup</servlet-name>
+        <url-pattern>/Signup</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

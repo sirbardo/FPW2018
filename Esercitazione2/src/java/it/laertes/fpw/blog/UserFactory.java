@@ -6,6 +6,7 @@
 package it.laertes.fpw.blog;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -97,29 +98,144 @@ public class UserFactory {
     
     public User getUserById(int id)
     {
-        for (User user : userList)
-            if (user.getId() == id)
-                return user;
+        try {
+            Connection conn = DbManager.getInstance().getDbConnection();
+            String sql = "select * from users where id_user = ?";
+            User userToReturn = new User();
+            
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            
+            stmt.setInt(1, id);
+            
+            ResultSet set = stmt.executeQuery();
+            
+            if (set.next()) //Se ho trovato l'utente
+            {
+                userToReturn.setId(set.getInt("id_user"));
+                userToReturn.setName(set.getString("name"));
+                userToReturn.setSurname(set.getString("surname"));
+                userToReturn.setEmail(set.getString("email"));
+                userToReturn.setPassword(set.getString("password"));
+                userToReturn.setUrlProfImg(set.getString("urlProfImg"));
+            }
+            
+            stmt.close();
+            conn.close();
+            
+            return userToReturn;
+        } catch (SQLException ex) {
+            Logger.getLogger(UserFactory.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         return null;
     }
     
     public boolean login(String email, String password)
     {
-        for(User user : userList)
-            if (user.getEmail().equals(email) && user.getPassword().equals(password))
-                return true;
-        
+        try {
+            Connection conn = DbManager.getInstance().getDbConnection();
+            String sql = "select * from users where email = ? and "
+                    + "password = ?";
+            Boolean loggedIn = false;
+            
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            
+            stmt.setString(1, email);
+            stmt.setString(2, password);
+            
+            ResultSet set = stmt.executeQuery();
+            
+            loggedIn = set.next(); //c'è almeno una riga?
+            
+            stmt.close();
+            conn.close();
+            
+            return loggedIn;
+        } catch (SQLException ex) {
+            Logger.getLogger(UserFactory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         return false;
     }
     
     public User getUserByEmail(String email)
     {
-        for (User user: userList)
-            if (user.getEmail().equals(email))
-                return user;
+        try {
+            Connection conn = DbManager.getInstance().getDbConnection();
+            String sql = "select * from users where email = ?";
+            User userToReturn = new User();
+            
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            
+            stmt.setString(1, email);
+            
+            ResultSet set = stmt.executeQuery();
+            
+            if (set.next()) //Se ho trovato l'utente
+            {
+                userToReturn.setId(set.getInt("id_user"));
+                userToReturn.setName(set.getString("name"));
+                userToReturn.setSurname(set.getString("surname"));
+                userToReturn.setEmail(set.getString("email"));
+                userToReturn.setPassword(set.getString("password"));
+                userToReturn.setUrlProfImg(set.getString("urlProfImg"));
+            }
+            
+            stmt.close();
+            conn.close();
+            
+            return userToReturn;
+        } catch (SQLException ex) {
+            Logger.getLogger(UserFactory.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         return null;
+    }
+
+    public void addUser(String name, String surname, String password, String email, String urlProfImg) {
+        
+        try {
+            Connection conn = DbManager.getInstance().getDbConnection();
+            conn.setAutoCommit(false);
+            String sql = "insert into users(name, surname,"
+                    + "email, password, urlProfImg) values"
+                    + "(?, ?, ?, ?, ?)" ;
+            
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            
+            stmt.setString(1, name);
+            stmt.setString(2, surname);
+            stmt.setString(3, email);
+            stmt.setString(4, password);
+            stmt.setString(5, urlProfImg);
+
+            /*Il seguente pezzo di codice è implementato
+            in questo modo per fini didattici: è una implementazione
+            di transazione
+            */
+            try{
+                String operazioneRischiosa = "";
+            }catch(Exception e){
+                
+                conn.rollback();
+                return;
+            }
+            
+            int rows = stmt.executeUpdate();
+            
+            if (rows == 1) {
+                System.out.println("Insert ok!");
+            }
+            
+            
+            conn.commit();
+            stmt.close();
+            conn.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(UserFactory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
 }
