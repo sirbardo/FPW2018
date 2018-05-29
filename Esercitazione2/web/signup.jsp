@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="stylesheet" type="text/css" href="style1.css" media="screen">
+        <script src="js/Prova.js"></script>
     </head>
     <body>
 
@@ -22,6 +23,16 @@
         
         <article>
         <div class="left-box">
+            
+            
+            <script type="text/javascript">
+                
+                var a = 2
+                var b = 100
+                
+                print_sum(a, b)
+                
+            </script>
             
             <h3>Lista ultime news</h3> 
             <ol>

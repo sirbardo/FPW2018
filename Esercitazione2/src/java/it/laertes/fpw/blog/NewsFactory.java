@@ -83,4 +83,18 @@ public class NewsFactory {
         return listToReturn;
     }
     
+    
+    public ArrayList<News> searchNews(String toSearch)
+    {
+        ArrayList<News> listToReturn = new ArrayList<>();
+        
+        for (News news : listNews)
+        {
+            if (news.getContent().contains(toSearch))
+                listToReturn.add(news);
+        }
+        
+        return listToReturn;
+    }
+    
 }

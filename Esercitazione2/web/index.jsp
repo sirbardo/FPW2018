@@ -62,7 +62,7 @@ and open the template in the editor.
         </div>
         <div class="main-box">
             <c:forEach var="news" items="${listNews}">
-                <div>
+                <div class="div-news" id="${news.getId()}-news">
                     Notizia di: ${news.getAutore().getName()}
                     <br>
                     ${news.getContent()}

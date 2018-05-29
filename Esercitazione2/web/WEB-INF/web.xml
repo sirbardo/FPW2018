@@ -16,6 +16,10 @@
         <servlet-name>Signup</servlet-name>
         <servlet-class>it.laertes.fpw.blog.Signup</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchAjax</servlet-name>
+        <servlet-class>it.laertes.fpw.blog.SearchAjax</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Utente</servlet-name>
         <url-pattern>/Utente</url-pattern>
@@ -34,6 +38,10 @@
     <servlet-mapping>
         <servlet-name>Signup</servlet-name>
         <url-pattern>/Signup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchAjax</servlet-name>
+        <url-pattern>/SearchAjax</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
